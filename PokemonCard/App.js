@@ -83,9 +83,13 @@ export default function App() {
             </View>
             <FlatList
                 data={listCart}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={(cart) => {
                     return <PokemonCart {...cart.item} key={cart.index} />;
                 }}
+                ItemSeparatorComponent={() => (
+                    <View style={{ padding: 5 }}></View>
+                )}
             />
         </SafeAreaView>
     );
