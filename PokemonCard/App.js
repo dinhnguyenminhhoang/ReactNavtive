@@ -90,6 +90,17 @@ export default function App() {
                 ItemSeparatorComponent={() => (
                     <View style={{ padding: 5 }}></View>
                 )}
+                ListEmptyComponent={
+                    <Text
+                        style={{
+                            textAlign: "center",
+                            fontSize: 24,
+                            fontWeight: "bold",
+                        }}
+                    >
+                        No item found!
+                    </Text>
+                }
             />
         </SafeAreaView>
     );
