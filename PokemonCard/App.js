@@ -3,6 +3,7 @@ import {
     Platform,
     SafeAreaView,
     ScrollView,
+    SectionList,
     StyleSheet,
     Text,
     View,
@@ -52,6 +53,25 @@ export default function App() {
             weaknesses: ["water", "Rock"],
         },
     ];
+    const sectionList = [
+        {
+            title: "Section 1",
+            data: [
+                { key: "1", label: "Item 1" },
+                { key: "2", label: "Item 2" },
+            ],
+        },
+        {
+            title: "Section 2",
+            data: [
+                { key: "3", label: "Item 3" },
+                { key: "4", label: "Item 4" },
+                { key: "5", label: "Item 5" },
+            ],
+        },
+        // Add more sections as needed
+    ];
+
     // <ScrollView>
     //             <View style={{ alignItems: "center" }}>
     //                 <Text
@@ -68,6 +88,18 @@ export default function App() {
     //                 <PokemonCart {...cart} key={index} />
     //             ))}
     //         </ScrollView>
+    const renderSectionHeader = ({ section: { title } }) => (
+        <View style={styles.sectionHeader}>
+            <Text style={styles.sectionHeaderText}>{title}</Text>
+        </View>
+    );
+
+    const renderItem = ({ item }) => (
+        <View style={styles.item}>
+            <Text>{item.label}</Text>
+        </View>
+    );
+
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
@@ -117,6 +149,12 @@ export default function App() {
                         </Text>
                     </View>
                 }
+            />
+            <SectionList
+                sections={sectionList}
+                keyExtractor={(item) => item.key}
+                renderSectionHeader={renderSectionHeader}
+                renderItem={renderItem}
             />
         </SafeAreaView>
     );
