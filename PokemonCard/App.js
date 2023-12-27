@@ -70,17 +70,6 @@ export default function App() {
     //         </ScrollView>
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{ alignItems: "center" }}>
-                <Text
-                    style={{
-                        fontSize: 24,
-                        fontWeight: "bold",
-                        paddingVertical: 4,
-                    }}
-                >
-                    Pokemon Collection
-                </Text>
-            </View>
             <FlatList
                 data={listCart}
                 keyExtractor={(item, index) => index.toString()}
@@ -100,6 +89,33 @@ export default function App() {
                     >
                         No item found!
                     </Text>
+                }
+                ListHeaderComponent={
+                    <View style={{ alignItems: "center" }}>
+                        <Text
+                            style={{
+                                fontSize: 24,
+                                fontWeight: "bold",
+                                paddingVertical: 4,
+                            }}
+                        >
+                            Pokemon Collection
+                        </Text>
+                    </View>
+                }
+                ListFooterComponent={
+                    <View style={{ alignItems: "center" }}>
+                        <Text
+                            style={{
+                                fontSize: 24,
+                                fontWeight: "bold",
+                                paddingTop: 4,
+                                paddingBottom: 20,
+                            }}
+                        >
+                            End List Pokemon Card
+                        </Text>
+                    </View>
                 }
             />
         </SafeAreaView>
