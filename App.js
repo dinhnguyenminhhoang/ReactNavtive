@@ -1,53 +1,32 @@
-import { useEffect, useState } from "react";
-import {
-    Dimensions,
-    StyleSheet,
-    Text,
-    View,
-    useWindowDimensions,
-} from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 
 export default function App() {
-    const windowWidth = useWindowDimensions().width;
-    const windowHeight = useWindowDimensions().height;
     return (
-        <View style={styles.container}>
-            <View
-                style={[
-                    styles.box,
-                    {
-                        width: windowWidth > 500 ? "70%" : "90%",
-                        height: windowHeight > 500 ? "60%" : "90%",
-                    },
-                ]}
-            >
-                <Text
-                    style={{
-                        fontSize: windowWidth > 500 ? 50 : 24,
-                        textAlign: "center",
-                    }}
-                >
-                    well come to comback
-                </Text>
+        <SafeAreaView style={styles.safeContainer}>
+            <View style={styles.container}>
+                <View style={styles.box}>
+                    <Text style={styles.text}>well come to comback</Text>
+                </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
+    safeContainer: {
+        flex: 1,
+        backgroundColor: "plum",
+    },
     container: {
         flex: 1,
         backgroundColor: "plum",
         alignItems: "center",
-        justifyContent: "center",
     },
     box: {
-        // width: windowWidth > 500 ? "70%" : "90%",
-        // height: windowHeight > 500 ? "60%" : "90%",
-        backgroundColor: "green",
-        justifyContent: "center",
+        padding: 20,
     },
     text: {
-        textAlign: "center",
+        fontSize: 24,
+        fontWeight: "bold",
     },
 });
