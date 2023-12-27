@@ -1,4 +1,5 @@
 import {
+    FlatList,
     Platform,
     SafeAreaView,
     ScrollView,
@@ -51,24 +52,41 @@ export default function App() {
             weaknesses: ["water", "Rock"],
         },
     ];
+    // <ScrollView>
+    //             <View style={{ alignItems: "center" }}>
+    //                 <Text
+    //                     style={{
+    //                         fontSize: 24,
+    //                         fontWeight: "bold",
+    //                         paddingVertical: 4,
+    //                     }}
+    //                 >
+    //                     Pokemon Collection
+    //                 </Text>
+    //             </View>
+    //             {listCart.map((cart, index) => (
+    //                 <PokemonCart {...cart} key={index} />
+    //             ))}
+    //         </ScrollView>
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <View style={{ alignItems: "center" }}>
-                    <Text
-                        style={{
-                            fontSize: 24,
-                            fontWeight: "bold",
-                            paddingVertical: 4,
-                        }}
-                    >
-                        Pokemon Collection
-                    </Text>
-                </View>
-                {listCart.map((cart, index) => (
-                    <PokemonCart {...cart} key={index} />
-                ))}
-            </ScrollView>
+            <View style={{ alignItems: "center" }}>
+                <Text
+                    style={{
+                        fontSize: 24,
+                        fontWeight: "bold",
+                        paddingVertical: 4,
+                    }}
+                >
+                    Pokemon Collection
+                </Text>
+            </View>
+            <FlatList
+                data={listCart}
+                renderItem={(cart) => {
+                    return <PokemonCart {...cart.item} key={cart.index} />;
+                }}
+            />
         </SafeAreaView>
     );
 }
