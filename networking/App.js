@@ -19,7 +19,7 @@ export default function App() {
     const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Settings">
+            <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Notifications" component={Notifications} />
                 <Stack.Screen name="Profile" component={Profile} />
