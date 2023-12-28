@@ -88,17 +88,6 @@ export default function App() {
     //                 <PokemonCart {...cart} key={index} />
     //             ))}
     //         </ScrollView>
-    const renderSectionHeader = ({ section: { title } }) => (
-        <View style={styles.sectionHeader}>
-            <Text style={styles.sectionHeaderText}>{title}</Text>
-        </View>
-    );
-
-    const renderItem = ({ item }) => (
-        <View style={styles.item}>
-            <Text>{item.label}</Text>
-        </View>
-    );
 
     return (
         <SafeAreaView style={styles.container}>
@@ -150,12 +139,25 @@ export default function App() {
                     </View>
                 }
             />
-            <SectionList
-                sections={sectionList}
-                keyExtractor={(item) => item.key}
-                renderSectionHeader={renderSectionHeader}
-                renderItem={renderItem}
-            />
+
+            <View>
+                <SectionList
+                    sections={sectionList}
+                    keyExtractor={(item) => item.key}
+                    renderSectionHeader={({ section: { title } }) => (
+                        <View style={styles.sectionHeader}>
+                            <Text style={styles.sectionHeaderText}>
+                                {title}
+                            </Text>
+                        </View>
+                    )}
+                    renderItem={({ item }) => (
+                        <View style={styles.item}>
+                            <Text>{item.label}</Text>
+                        </View>
+                    )}
+                />
+            </View>
         </SafeAreaView>
     );
 }

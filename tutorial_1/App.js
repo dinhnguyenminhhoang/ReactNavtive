@@ -1,16 +1,22 @@
-import { StyleSheet, Text, View, SafeAreaView, Platform } from "react-native";
-import CustomButton from "./components/CustomButton/CustomButton";
+import {
+    Platform,
+    SafeAreaView,
+    StyleSheet,
+    TextInput,
+    View,
+} from "react-native";
 export default function App() {
     return (
         <SafeAreaView style={styles.safeContainer}>
             <View style={styles.container}>
-                <View style={styles.box}>
-                    <Text style={styles.text}>well come to comback</Text>
-                    <CustomButton
-                        title="Press me"
-                        onPress={() => alert("Pressed !")}
-                    />
-                </View>
+                <TextInput
+                    style={styles.input}
+                    placeholder="text input"
+                    // secureTextEntry
+                    keyboardType="default"
+                    autoCorrect
+                    // autoCapitalize="none"
+                />
             </View>
         </SafeAreaView>
     );
@@ -19,28 +25,20 @@ export default function App() {
 const styles = StyleSheet.create({
     safeContainer: {
         flex: 1,
-        backgroundColor: "plum",
+        backgroundColor: "#f5f5f5",
+        paddingTop: 20,
     },
     container: {
         flex: 1,
-        backgroundColor: "plum",
+        backgroundColor: "#f5f5f5",
         alignItems: "center",
         paddingTop: Platform.OS === "ios" ? 50 : 0,
     },
-    box: {
-        padding: 20,
-    },
-    text: {
-        ...Platform.select({
-            ios: {
-                fontSize: 40,
-                color: "green",
-            },
-            android: {
-                fontSize: 24,
-                color: "red",
-            },
-        }),
-        fontWeight: "bold",
+    input: {
+        height: 40,
+        width: "100%",
+        margin: 12,
+        padding: 10,
+        borderWidth: 1,
     },
 });
