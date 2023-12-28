@@ -20,7 +20,14 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen
+                    name="Home"
+                    component={Home}
+                    options={{
+                        title: "wellcom to Home pgae",
+                        headerStyle: { backgroundColor: "red" },
+                    }}
+                />
                 <Stack.Screen name="Notifications" component={Notifications} />
                 <Stack.Screen name="Profile" component={Profile} />
                 <Stack.Screen name="Settings" component={Settings} />
