@@ -4,7 +4,10 @@ import React from "react";
 export default function About({ route, navigation }) {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>About name: {route.params?.name}</Text>
+            <Text style={styles.text}>About</Text>
+            {route.params?.name && (
+                <Text style={styles.text}>{route.params?.name}</Text>
+            )}
 
             <Button
                 title="Update the name"
