@@ -7,7 +7,12 @@ export default function Home({ navigation }) {
             <Text>Home</Text>
             <Button
                 title="go to profile page"
-                onPress={() => navigation.navigate("Profile")}
+                onPress={() =>
+                    navigation.navigate("Profile", {
+                        title: "Go to Profile",
+                        oldPage: "Home",
+                    })
+                }
             ></Button>
         </View>
     );

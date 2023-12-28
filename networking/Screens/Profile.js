@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function Profile() {
+export default function Profile({ route }) {
+    console.log(route.params);
     return (
         <View>
-            <Text>Profile</Text>
+            <Text>{route.params?.title}</Text>
         </View>
     );
 }
