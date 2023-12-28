@@ -1,14 +1,32 @@
+import { useState } from "react";
 import {
     Platform,
     SafeAreaView,
     StyleSheet,
+    Switch,
+    Text,
     TextInput,
     View,
 } from "react-native";
 export default function App() {
+    const [darkMode, setDarkMode] = useState(false);
     return (
-        <SafeAreaView style={styles.safeContainer}>
-            <View style={styles.container}>
+        <SafeAreaView
+            style={[
+                styles.safeContainer,
+                {
+                    backgroundColor: darkMode ? "#f5f5f5" : "#333",
+                },
+            ]}
+        >
+            <View
+                style={[
+                    styles.container,
+                    {
+                        backgroundColor: darkMode ? "#f5f5f5" : "#333",
+                    },
+                ]}
+            >
                 <TextInput
                     style={styles.input}
                     placeholder="text input"
@@ -26,6 +44,13 @@ export default function App() {
                     autoCapitalize="none"
                     multiline
                 />
+                <View style={styles.swichCntainer}>
+                    <Text style={styles.swichText}>Dark mode</Text>
+                    <Switch
+                        value={darkMode}
+                        onChange={() => setDarkMode(!darkMode)}
+                    />
+                </View>
             </View>
         </SafeAreaView>
     );
@@ -34,12 +59,10 @@ export default function App() {
 const styles = StyleSheet.create({
     safeContainer: {
         flex: 1,
-        backgroundColor: "#f5f5f5",
         paddingTop: 20,
     },
     container: {
         flex: 1,
-        backgroundColor: "#f5f5f5",
         alignItems: "center",
         paddingTop: Platform.OS === "ios" ? 50 : 0,
     },
@@ -49,5 +72,11 @@ const styles = StyleSheet.create({
         margin: 12,
         padding: 10,
         borderWidth: 1,
+    },
+    swichCntainer: {
+        flexDirection: "row",
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: "center",
     },
 });
