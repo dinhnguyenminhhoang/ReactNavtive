@@ -12,14 +12,26 @@ import {
 export default function App() {
     const [posts, setPost] = useState([]);
     const [loading, setIsLoading] = useState(true);
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts?_limit=100")
+    const [reRefresh, setReRefresh] = useState(false);
+    const handleFetchData = (limit = 10) => {
+        fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}`)
             .then((response) => response.json())
             .then((json) => {
                 setPost(json);
                 setIsLoading(false);
             });
+    };
+    useEffect(() => {
+        handleFetchData();
     }, []);
+    const handleRefreshData = () => {
+        setReRefresh(true);
+        setIsLoading(true);
+        handleFetchData(posts.length + 10);
+        setReRefresh(false);
+        setIsLoading(false);
+    };
+    console.log(posts.length);
     if (loading) {
         return (
             <SafeAreaView style={styles.loadingContainer}>
@@ -28,6 +40,7 @@ export default function App() {
             </SafeAreaView>
         );
     }
+
     return (
         <SafeAreaView style={styles.safeContainer}>
             <View style={styles.container}>
@@ -46,6 +59,9 @@ export default function App() {
                         ItemSeparatorComponent={
                             <View style={{ paddingVertical: 10 }}></View>
                         }
+                        onEndReached={handleRefreshData}
+                        refreshing={reRefresh}
+                        onRefresh={handleRefreshData}
                     />
                 ) : null}
             </View>
