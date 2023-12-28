@@ -17,6 +17,15 @@ export default function App() {
                     autoCorrect
                     // autoCapitalize="none"
                 />
+                <TextInput
+                    style={styles.input}
+                    placeholder="text input"
+                    // secureTextEntry
+                    keyboardType="default"
+                    autoCorrect
+                    autoCapitalize="none"
+                    multiline
+                />
             </View>
         </SafeAreaView>
     );
