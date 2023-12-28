@@ -1,19 +1,36 @@
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, StyleSheet } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Home({ navigation }) {
+export default function Home({ navigation, route }) {
+    // const navigation = useNavigation();
     return (
-        <View>
-            <Text>Home</Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>Home: {route.params?.result}</Text>
             <Button
-                title="go to profile page"
                 onPress={() =>
-                    navigation.navigate("Profile", {
-                        title: "Go to Profile",
-                        oldPage: "Home",
-                    })
+                    navigation.navigate(
+                        "About"
+                        // , {
+                        //     name: "Vishwas",
+                        // }
+                    )
                 }
-            ></Button>
+                title=" Go to About"
+            />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    text: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 16,
+    },
+});

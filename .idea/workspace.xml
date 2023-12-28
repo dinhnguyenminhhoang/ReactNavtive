@@ -7,6 +7,10 @@
     <list default="true" id="db8c9725-200d-45aa-818a-17040f5f0eae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/networking/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/networking/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networking/Screens/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/networking/Screens/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networking/Screens/Notifications.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/networking/Screens/Profile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/networking/Screens/Settings.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
