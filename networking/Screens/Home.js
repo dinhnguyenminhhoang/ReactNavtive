@@ -9,12 +9,9 @@ export default function Home({ navigation, route }) {
             <Text style={styles.text}>Home: {route.params?.result}</Text>
             <Button
                 onPress={() =>
-                    navigation.navigate(
-                        "About"
-                        // , {
-                        //     name: "Vishwas",
-                        // }
-                    )
+                    navigation.navigate("About", {
+                        name: "Vishwas",
+                    })
                 }
                 title=" Go to About"
             />

@@ -4,9 +4,11 @@ import { StatusBar } from "expo-status-bar";
 import { Pressable, StyleSheet, Text } from "react-native";
 import Home from "./Screens/Home";
 import About from "./Screens/About";
+import { useLayoutEffect } from "react";
 
 export default function App() {
     const Stack = createNativeStackNavigator();
+
     return (
         <NavigationContainer>
             <Stack.Navigator
@@ -61,6 +63,7 @@ export default function App() {
                     name="About"
                     component={About}
                     initialParams={{ name: "Guest" }}
+                    options={({ route }) => ({ title: route.params.name })}
                 />
             </Stack.Navigator>
         </NavigationContainer>
